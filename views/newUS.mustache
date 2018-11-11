@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome To THe Messages</title>
+    <link rel="stylesheet" href="/assets/semantic/semantic.min.css">
+
+</head>
+<style>
+</style>
+
+<body>
+
+  <div class="ui middle aligned center aligned grid">
+      <div class="column">
+          <h1 >
+              <div class="content">
+                  Formulaire d'inscription
+              </div>
+          </h1>
+
+          <form  action="/newuser" method="post" class="ui large form">
+            <div class="field">
+              <label>First Name</label>
+              <input type="text" name="firstname" placeholder="First Name">
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input type="text" name="lastname" placeholder="Last Name">
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="text" name="email" placeholder="your email">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password" name="password" placeholder="password">
+            </div>
+            <div class="field">
+              <div class="ui checkbox">
+                <input type="checkbox" tabindex="0" class="hidden">
+                <label>J'accepte les conditions générales</label>
+              </div>
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+          </form>
+
+        </div>
+    </div>
+</body>
+</html>
