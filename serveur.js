@@ -1,12 +1,12 @@
 const express = require('express');
 const app = require("./config/expressConfig");
+const connection = require("./config/dbmongo");
 app.set('views', __dirname + '/views');
 app.use('/assets', express.static('publicCSS'));
 
 app.get('/login', (req, res)=>{
     res.render('login');
 } );
-
 
 app.get('/SingUp', (req, res)=>{
     res.render('newUS');

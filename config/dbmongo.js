@@ -8,4 +8,5 @@ console.error('error of connection');
 
 mongoose.Promise = global.Promise;
 
+module.exports = connection;
 
