@@ -1,8 +1,13 @@
 const express = require('express');
 const app = require("./config/expressConfig");
 const connection = require("./config/dbmongo");
+const router = require('./routes/routes');
+
 app.set('views', __dirname + '/views');
+
 app.use('/assets', express.static('publicCSS'));
+
+app.use('/', router);
 
 app.get('/login', (req, res)=>{
     res.render('login');
