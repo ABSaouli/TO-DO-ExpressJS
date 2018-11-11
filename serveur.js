@@ -1,14 +1,16 @@
 const express = require('express');
-const session = require('express-session');
-const app = express();
-const bodyparser = reqyure('body-parser');
+const app = require("./config/expressConfig");
+app.set('views', __dirname + '/views');
+app.use('/assets', express.static('publicCSS'));
+
+app.get('/login', (req, res)=>{
+    res.render('login');
+} );
 
 
-app.use(bodyparser.urlencoded({extended: true}));
-
-app.use(session({secret: 'test'}));
-
-app.get('/', (req, res) => res.send('yes'));
+app.get('/SingUp', (req, res)=>{
+    res.render('newUS');
+  } );
 
 
 app.listen(3000, ()=>{
