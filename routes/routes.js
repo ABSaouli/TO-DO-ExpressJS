@@ -9,7 +9,26 @@ router.get("/", (req, res) => {
   let doneTodos = TodoList.filter(todo => {
     return todo.done;
   });
-  res.render("indexUser", { todos: todos, doneTodos: doneTodos });
+  let fait = 0;
+  let afaire = 0;
+  TodoList.forEach(todo => {
+    if (todo.done) {
+      afaire++;
+    } else {
+      fait++;
+    }
+  });
+  let compteur = { fait: fait, afaire: afaire };
+  res.render("indexUser", {
+    todos: todos,
+    doneTodos: doneTodos,
+    compteur: compteur
+  });
+  console.log(
+    "fait " + compteur.fait,
+    "afaire " + compteur.afaire,
+    "compteur " + compteur
+  );
 });
 
 router.post("/newuser", (req, res) => {
