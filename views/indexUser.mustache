@@ -23,6 +23,7 @@
     padding: 10px;
     width: 1000px;
     border-radius: 4px;
+    height: 25px;
 }
 .champ:hover {
     background: aliceblue;
@@ -50,7 +51,7 @@ width: 90%;
 }
 .desc{
   display: inline-block;
-  width: 90%;
+  width: 92%;
 }
 
 </style>
@@ -78,13 +79,13 @@ width: 90%;
    <ul>
      {{#doneTodos}}
      <div class="champ">
-       <form action="/todos/{{_id}}/Fait" method="post">
-         {{description}} -{{done}}
-         <button type="submit"> à refaire </button>
+       <form action="/todos/{{_id}}/Fait" method="post" class="my-form">
+           <span class="desc">{{description}} -{{done}}</span>
+           <button type="submit"> à refaire </button>
        </form>
-     <form action="/todos/{{_id}}/delete" method="post">
+       <form action="/todos/{{_id}}/delete" method="post"  class="my-form">
            <button type="submit"  >Delete</button>
-         </form>
+       </form>
 
      </div>
   {{/doneTodos}}

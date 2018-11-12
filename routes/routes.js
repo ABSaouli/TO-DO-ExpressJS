@@ -16,7 +16,7 @@ router.post('/newuser', (req, res)=>{
     let user = new User({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        Email: req.body.email,
+        Email: req.body.email, 
         password: req.body.password
     });
 
