@@ -3,7 +3,6 @@ const User = require('../models/users');
  
 router.get('/', (req, res)=>{
     let TodoList = req.user.todos;
-    console.log(TodoList);
     let todos =   TodoList.filter((todo)=>{
         return !todo.done;
       });
@@ -28,7 +27,6 @@ router.post('/newuser', (req, res)=>{
         console.log("error d'enrigestrement user");
     });
 });
-
 router.post('/AddTodo', (req,res)=>{
     let description = req.body.description;
     let userID = req.user._id;
@@ -43,13 +41,25 @@ router.post('/AddTodo', (req,res)=>{
             }).catch((err)=>{
                 console.log(err);
             });
+    });
+});
 
+router.post('/AddTodo/:id/Fait', (req, res)=>{
+    let userID = req.user._id;
+    user = req.user;
+    let todoID = req.params.id; 
+
+    user.todos.forEach(todo => {
+        if(todo._id.toString() === todoID){
+            todo.done = !todo.done;
+            user.save()
+            .then(() => 
+                res.redirect('/')
+            );
+        }
     })
-    
+});
 
-
-
-})
 
 module.exports = router;
 
