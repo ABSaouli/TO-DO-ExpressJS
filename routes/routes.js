@@ -29,5 +29,27 @@ router.post('/newuser', (req, res)=>{
     });
 });
 
+router.post('/AddTodo', (req,res)=>{
+    let description = req.body.description;
+    let userID = req.user._id;
+    User.findById(userID, (err, user)=>{
+        if (err) throw err
+
+        user.todos.push({description: description} );
+
+            user.save().then((result)=>{
+                console.log('Todo est bien ajouter a la list');
+                res.redirect('/')
+            }).catch((err)=>{
+                console.log(err);
+            });
+
+    })
+    
+
+
+
+})
+
 module.exports = router;
 
