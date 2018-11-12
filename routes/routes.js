@@ -2,15 +2,14 @@ const router = require("express").Router();
 const User = require('../models/users');
  
 router.get('/', (req, res)=>{
-    let todolist =  req.body.todos;
-    todolist.find({}).then((reslt)=>{
-        let todos = reslt.filter((todo)=>{
-            return !todo.done;
-        })
-        let doneTodos = reslt.filter(todo=>{
-            return todo.done;
-        })
-    });
+    let TodoList = req.user.todos;
+    console.log(TodoList);
+    let todos =   TodoList.filter((todo)=>{
+        return !todo.done;
+      });
+    let doneTodos = TodoList.filter((todo)=>{
+        return todo.done;
+      });
     res.render('indexUser', {todos: todos, doneTodos: doneTodos});
 });
 
