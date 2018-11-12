@@ -44,8 +44,7 @@ router.post('/AddTodo', (req,res)=>{
     });
 });
 
-router.post('/AddTodo/:id/Fait', (req, res)=>{
-    let userID = req.user._id;
+router.post('/todos/:id/Fait', (req, res)=>{
     user = req.user;
     let todoID = req.params.id; 
 
@@ -60,6 +59,19 @@ router.post('/AddTodo/:id/Fait', (req, res)=>{
     })
 });
 
+router.post('/todos/:id/delete', (req, res)=>{
+    user = req.user;
+    let todoID = req.params.id; 
+    user.todos.forEach((todo, index) => {
+        if(todo._id.toString() === todoID){
+            user.todos.splice(index,1);
+            user.save()
+            .then(() => 
+                res.redirect('/')
+            );
+        }
+    })
+});
 
 module.exports = router;
 

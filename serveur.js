@@ -28,11 +28,6 @@ app.get('/SingUp', (req, res)=>{
     res.render('newUS');
   } );
 
-  //app.get('/', (req, res)=>{
-    //res.render('indexUser', {});
-  //});
-
-
 app.listen(3000, ()=>{
     console.log('je vous écoute sur le port 3000');
 });

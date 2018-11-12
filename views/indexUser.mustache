@@ -64,7 +64,7 @@ width: 90%;
   <ul>
   {{#todos}}
     <div class="champ">
-          <form action="/AddTodo/{{_id}}/Fait" method="post" class="my-form">
+          <form action="/todos/{{_id}}/Fait" method="post" class="my-form">
                 <span class="desc">{{description}} -{{done}}</span>
                 <button type="submit"  > Fait</button>
          </form>
@@ -78,7 +78,7 @@ width: 90%;
    <ul>
      {{#doneTodos}}
      <div class="champ">
-       <form action="/todos/{{_id}}/Abdel" method="post">
+       <form action="/todos/{{_id}}/Fait" method="post">
          {{description}} -{{done}}
          <button type="submit"> à refaire </button>
        </form>
