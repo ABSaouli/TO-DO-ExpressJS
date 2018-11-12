@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Todos</title>
+    <link rel="stylesheet" href="/assets/semantic/semantic.min.css">
   </head>
   <style>
   input[type=text], select {
@@ -23,7 +24,7 @@
     padding: 10px;
     width: 1000px;
     border-radius: 4px;
-    height: 25px;
+    height: 38px;
 }
 .champ:hover {
     background: aliceblue;
@@ -54,18 +55,37 @@ width: 90%;
   width: 92%;
 }
 
+
 </style>
-<body>  
+<body> 
+<ul> 
+<div class="ui compact menu">
+  {{#compteur}}
+     <a class="item">
+    <i class="icon file alternate outline"></i> Todo Fait
+    <div class="floating ui red label"> {{afaire}} </div>
+  </a>
+  <a class="item">
+    <i class="icon file alternate outline"></i> Todo A Faire
+    <div class="floating ui teal label"> {{fait}} </div>
+  </a>
+  <a class="item"  href="/login"> <i class="icon sign-out"></i> Log Out </a>  
+  {{/compteur}}
+  </div>
+  </ul> 
+  <ul>
         <h1>Welcome to the TO DO.</h1>      
       <label for="fname">Ce que je dois faire!</label>
       <form  action="/AddTodo" method="post" >
         <input type="text" name="description" placeholder="Je veux..." >
-        <button type="submit" >AJOUTER</button>
+        <button  type="submit" class="ui inverted secondary button">AJOUTER</button>
      </form>
+   </ul>   
   <ul>
   {{#todos}}
     <div class="champ">
           <form action="/todos/{{_id}}/Fait" method="post" class="my-form">
+                <i class="icon file alternate outline"></i>
                 <span class="desc">{{description}} -{{done}}</span>
                 <button type="submit"  > Fait</button>
          </form>
@@ -75,11 +95,13 @@ width: 90%;
      </div>
   {{/todos}}
   </ul>
-    <h3>Déjà Fait</h3>
+    
    <ul>
+   <h3>Déjà Fait</h3>
      {{#doneTodos}}
      <div class="champ">
        <form action="/todos/{{_id}}/Fait" method="post" class="my-form">
+           <i class="icon file alternate outline"></i>
            <span class="desc">{{description}} -{{done}}</span>
            <button type="submit"> à refaire </button>
        </form>
