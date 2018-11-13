@@ -3,6 +3,7 @@ const User = require("../models/users");
 
 router.get("/", (req, res) => {
   let TodoList = req.user.todos;
+  let firstname = req.user.firstname.toUpperCase();
   let todos = TodoList.filter(todo => {
     return !todo.done;
   });
@@ -18,7 +19,7 @@ router.get("/", (req, res) => {
       fait++;
     }
   });
-  let compteur = { fait: fait, afaire: afaire };
+  let compteur = { fait: fait, afaire: afaire, user: firstname };
   res.render("indexUser", {
     todos: todos,
     doneTodos: doneTodos,
@@ -27,6 +28,7 @@ router.get("/", (req, res) => {
   console.log(
     "fait " + compteur.fait,
     "afaire " + compteur.afaire,
+    "username " + compteur.user,
     "compteur " + compteur
   );
 });

@@ -35,6 +35,9 @@
 }
 .champ button {
     display: none;
+    width: 62px;
+    border-radius: 2px;
+    color: teal;
   }
 h1 {
     color: white;
@@ -52,30 +55,31 @@ width: 90%;
 }
 .desc{
   display: inline-block;
-  width: 92%;
+  width: 90%;
 }
 
 
 </style>
 <body> 
-<ul> 
-<div class="ui compact menu">
+ <ul>
+<div class="ui four item menu">
   {{#compteur}}
      <a class="item">
-    <i class="icon file alternate outline"></i> Todo Fait
-    <div class="floating ui red label"> {{afaire}} </div>
+    <i class="icon file alternate outline"></i> Todo Done
+    <div class="floating ui teal label"> {{afaire}} </div>
   </a>
   <a class="item">
-    <i class="icon file alternate outline"></i> Todo A Faire
-    <div class="floating ui teal label"> {{fait}} </div>
+    <i class="icon file alternate outline"></i> Todo 
+    <div class="floating ui red label"> {{fait}} </div>
   </a>
+  <a class="item"  href="/SingUp"> <i class="icon user circle outline"></i> {{user}} </a> 
   <a class="item"  href="/login"> <i class="icon sign-out"></i> Log Out </a>  
   {{/compteur}}
   </div>
-  </ul> 
-  <ul>
+ 
+  
         <h1>Welcome to the TO DO.</h1>      
-      <label for="fname">Ce que je dois faire!</label>
+      <label for="fname">What I have to do!</label>
       <form  action="/AddTodo" method="post" >
         <input type="text" name="description" placeholder="Je veux..." >
         <button  type="submit" class="ui inverted secondary button">AJOUTER</button>
@@ -87,7 +91,7 @@ width: 90%;
           <form action="/todos/{{_id}}/Fait" method="post" class="my-form">
                 <i class="icon file alternate outline"></i>
                 <span class="desc">{{description}} -{{done}}</span>
-                <button type="submit"  > Fait</button>
+                <button type="submit"  > ToDo  </button>
          </form>
           <form action="/todos/{{_id}}/delete" method="post" class="my-form">
                   <button type="submit"  >Delete</button>
@@ -103,7 +107,7 @@ width: 90%;
        <form action="/todos/{{_id}}/Fait" method="post" class="my-form">
            <i class="icon file alternate outline"></i>
            <span class="desc">{{description}} -{{done}}</span>
-           <button type="submit"> à refaire </button>
+           <button type="submit">Re Do</button>
        </form>
        <form action="/todos/{{_id}}/delete" method="post"  class="my-form">
            <button type="submit"  >Delete</button>
